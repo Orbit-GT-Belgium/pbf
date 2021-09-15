@@ -12,13 +12,15 @@ import (
 )
 
 // BitmaskSuperRelations cli command
-func BitmaskSuperRelations(c (*cli.Context)) error {
+func BitmaskSuperRelations(c *cli.Context) error {
+	
+	test = (c)
 
 	// create parser
-	parser := parser.NewParser(c.Args()[0])
+	parser := parser.NewParser(test.Args()[0])
 
 	// don't clobber existing bitmask file
-	if _, err := os.Stat(c.Args()[1]); err == nil {
+	if _, err := os.Stat(test.Args()[1]); err == nil {
 		log.Println("bitmask file already exists; don't want to override it")
 		os.Exit(1)
 	}
@@ -29,7 +31,7 @@ func BitmaskSuperRelations(c (*cli.Context)) error {
 	}
 
 	// write to disk
-	defer handle.Masks.WriteToFile(c.Args()[1])
+	defer handle.Masks.WriteToFile(test.Args()[1])
 
 	// Parse will block until it is done or an error occurs.
 	parser.Parse(handle)
