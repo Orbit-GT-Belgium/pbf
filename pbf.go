@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/missinglink/pbf/command"
+	"github.com/Orbit-GT-Belgium/pbf/command"
 	"github.com/urfave/cli"
 )
 
